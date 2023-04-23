@@ -48,45 +48,51 @@ while n < 4
         % values for now
         switch zone
             case "1a"
-                coords = [12 35];
+                coords = [12.5 62.5];
                 isValid = true;
                 break
             case "1b"
-                coords = [12 35];
+                coords = [37.5 62.5];
                 isValid = true;
                 break
             case "1c"
-                coords = [12 35];
+                coords = [62.5 62.5];
                 isValid = true;
                 break
             case "2a"
-                coords = [12 35];
+                coords = [12.5 87.5];
                 isValid = true;
                 break
             case "2b"
-                coords = [12 35];
+                coords = [37.5 87.5];
                 isValid = true;
                 break
             case "2c"
-                coords = [12 35];
+                coords = [62.5 87.5];
                 isValid = true;
                 break
             case "3a"
-                coords = [12 35];
+                coords = [12.5 112,5];
                 isValid = true;
                 break
             case "3b"
-                coords = [12 35];
+                coords = [37.5 112.5];
                 isValid = true;
                 break
             case "3c"
-                coords = [12 35];
+                coords = [62.5 112.5];
                 isValid = true;
                 break
             case "zone 4"
-                coords = [12 35];
+                coords = [37.5 137.5];
                 isValid = true;
                 break
+            case "exit"
+                return
+            case "quit"
+                return
+            case "stop"
+                return
             otherwise
                 warning("Invalid input, try again.\n");
         end
@@ -94,10 +100,10 @@ while n < 4
 
     % perform calculations for initial height and firing angle
     distance = sqrt(coords(1)^2 + coords(2)^2);     % calc distance
-    angle = 12;
+    angle = atan2(coords(2), coords(1)) * (180/pi);
     d1hat = polyval(polymodel, distance);               % polyval
     fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", d1hat);
-    fprintf("The angle at which you should aim the hammer is %.2f degrees. (this is a placeholder value) \n", angle);
+    fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
     n = n + 1;
 end
 
@@ -122,53 +128,57 @@ while true
         % values for now
         switch zone
             case "1a"
-                coords = [12 35];
+                coords = [12.5 62.5];
                 isValid = true;
                 break
             case "1b"
-                coords = [12 35];
+                coords = [37.5 62.5];
                 isValid = true;
                 break
             case "1c"
-                coords = [12 35];
+                coords = [62.5 62.5];
                 isValid = true;
                 break
             case "2a"
-                coords = [12 35];
+                coords = [12.5 87.5];
                 isValid = true;
                 break
             case "2b"
-                coords = [12 35];
+                coords = [37.5 87.5];
                 isValid = true;
                 break
             case "2c"
-                coords = [12 35];
+                coords = [62.5 87.5];
                 isValid = true;
                 break
             case "3a"
-                coords = [12 35];
+                coords = [12.5 112,5];
                 isValid = true;
                 break
             case "3b"
-                coords = [12 35];
+                coords = [37.5 112.5];
                 isValid = true;
                 break
             case "3c"
-                coords = [12 35];
+                coords = [62.5 112.5];
                 isValid = true;
                 break
             case "zone 4"
-                coords = [12 35];
+                coords = [37.5 137.5];
                 isValid = true;
                 break
             case "exit"
+                return
+            case "quit"
+                return
+            case "stop"
                 return
             otherwise
                 warning("Invalid input, try again.\n");
         end
     end
     distance = sqrt(coords(1)^2 + coords(2)^2);     % calc distance
-    angle = 12;
+    angle = atan2(coords(2), coords(1)) * (180/pi);
     d1hat = polyval(polymodel, distance);               % polyval
     fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", d1hat);
     fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
