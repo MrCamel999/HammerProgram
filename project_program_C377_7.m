@@ -25,6 +25,7 @@ while n < 4
 
     % print zone options
     fprintf("Your zone options are: \n")
+    fprintf("|     edge     |\n")
     fprintf("|    zone 4    |\n")
     fprintf("| 3a | 3b | 3c |\n")
     fprintf("| 2a | 2b | 2c |\n")
@@ -52,32 +53,35 @@ while n < 4
                 isValid = true;
                 break
             case "2a"
-                coords = [12.5 62.5];
+                coords = [-25 62.5];
                 isValid = true;
                 break
             case "2b"
-                coords = [37.5 62.5];
+                coords = [0 62.5];
                 isValid = true;
                 break
             case "2c"
-                coords = [62.5 62.5];
+                coords = [25 62.5];
                 isValid = true;
                 break
             case "3a"
-                coords = [12.5 87.5];
+                coords = [-25 87.5];
                 isValid = true;
                 break
             case "3b"
-                coords = [37.5 87.5];
+                coords = [0 87.5];
                 isValid = true;
                 break
             case "3c"
-                coords = [62.5 87.5];
+                coords = [25 87.5];
                 isValid = true;
                 break
             case "zone 4"
-                coords = [37.5 112.5];
+                coords = [0 112.5];
                 isValid = true;
+                break
+            case "edge"
+                coords = [0 125];
                 break
             case "exit"
                 return
@@ -170,6 +174,9 @@ while true
             case "goal"
                 coords = [xInput 137.5];
                 isValid = true;
+                break
+            case "edge"
+                coords = [0 125];
                 break
             case "exit"
                 return
