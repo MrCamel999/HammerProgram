@@ -48,43 +48,43 @@ while n < 4
         % values for now
         switch zone
             case "1a"
-                coords = [12.5 62.5];
+                coords = [-25 37.5];
                 isValid = true;
                 break
             case "1b"
-                coords = [37.5 62.5];
-                isValid = true;
+                coords = [0 37.5];
+                isValid = true; 
                 break
             case "1c"
-                coords = [62.5 62.5];
+                coords = [25 37.5];
                 isValid = true;
                 break
             case "2a"
-                coords = [12.5 87.5];
+                coords = [12.5 62.5];
                 isValid = true;
                 break
             case "2b"
-                coords = [37.5 87.5];
+                coords = [37.5 62.5];
                 isValid = true;
                 break
             case "2c"
-                coords = [62.5 87.5];
+                coords = [62.5 62.5];
                 isValid = true;
                 break
             case "3a"
-                coords = [12.5 112,5];
+                coords = [12.5 87.5];
                 isValid = true;
                 break
             case "3b"
-                coords = [37.5 112.5];
+                coords = [37.5 87.5];
                 isValid = true;
                 break
             case "3c"
-                coords = [62.5 112.5];
+                coords = [62.5 87.5];
                 isValid = true;
                 break
             case "zone 4"
-                coords = [37.5 137.5];
+                coords = [37.5 112.5];
                 isValid = true;
                 break
             case "exit"
@@ -116,7 +116,7 @@ n = n + 1;
 
 %% Scoring points at the end
 
-xInput = input("\nEnter the approximate coordinates of the middle of the goal: ");
+xInput = input("\nEnter the approximate x coordinate of the middle of the goal (middle is 0): ");
 
 while true
     fprintf("\nRound %d: Land Team Puck in Zone\n",n);
@@ -131,45 +131,44 @@ while true
         % values for now
         switch zone
             case "1a"
-                coords = [12.5 62.5];
+                coords = [-25 37.5];
                 isValid = true;
                 break
             case "1b"
-                coords = [37.5 62.5];
-                isValid = true;
+                coords = [0 37.5];
+                isValid = true; 
                 break
             case "1c"
-                coords = [62.5 62.5];
+                coords = [25 37.5];
                 isValid = true;
                 break
             case "2a"
-                coords = [12.5 87.5];
+                coords = [12.5 62.5];
                 isValid = true;
                 break
             case "2b"
-                coords = [37.5 87.5];
+                coords = [37.5 62.5];
                 isValid = true;
                 break
             case "2c"
-                coords = [62.5 87.5];
+                coords = [62.5 62.5];
                 isValid = true;
                 break
             case "3a"
-                coords = [12.5 112,5];
+                coords = [12.5 87.5];
                 isValid = true;
                 break
             case "3b"
-                coords = [37.5 112.5];
+                coords = [37.5 87.5];
                 isValid = true;
                 break
             case "3c"
-                coords = [62.5 112.5];
+                coords = [62.5 87.5];
                 isValid = true;
                 break
             case "zone 4"
-                coords = [37.5 137.5];
+                coords = [37.5 112.5];
                 isValid = true;
-                break
             case "goal"
                 coords = [xInput 137.5];
                 isValid = true;
