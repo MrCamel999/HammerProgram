@@ -93,6 +93,8 @@ while n < 4
                 return
             case "stop"
                 return
+            case "q"
+                return
             otherwise
                 warning("Invalid input, try again.\n");
         end
@@ -108,12 +110,13 @@ while n < 4
 end
 
 %% Round 4
-fprintf("\nRound 4: Land Team Puck\n");
+fprintf("\nRound 4: Hit Team Puck into EF Puck\n");
 
 n = n + 1;
 
-
 %% Scoring points at the end
+
+xInput = input("\nEnter the approximate coordinates of the middle of the goal: ");
 
 while true
     fprintf("\nRound %d: Land Team Puck in Zone\n",n);
@@ -167,11 +170,17 @@ while true
                 coords = [37.5 137.5];
                 isValid = true;
                 break
+            case "goal"
+                coords = [xInput 137.5];
+                isValid = true;
+                break
             case "exit"
                 return
             case "quit"
                 return
             case "stop"
+                return
+            case "q"
                 return
             otherwise
                 warning("Invalid input, try again.\n");
