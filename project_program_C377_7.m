@@ -1,3 +1,4 @@
+
 % Predict using polynomial models the desired, raised height (h) that the
 % hammer is raised in order to reach a desired distance (d)
 
@@ -7,21 +8,12 @@ clear; clc;
 
 %% Initialize Knowns
 
-% Note: This is simply left in for the convenience of not having to retype
-% it everytime i need to read the test data. It'll be removed when the
-% code needs to be submitted.
-%
-% data = readtable("project_test_data.csv");
-% polymodel = polyfit(data.distance, data.height, 2);
-
-
 % Note: Not the actual polynomial that we're using for the game day. This
 % is a substitute made of simulated test values that we made up. The actual
 % data will be collected between now and game day
-p1 = 0.0129;
-p2 = 0.4638;
-p3 = -5.2312;
-polymodel = [p1, p2, p3];
+p1 = 1.0925;
+p2 = 9.7869;
+polymodel1 = [p1, p2];
 
 n = 1;
 
@@ -103,8 +95,8 @@ while n < 4
     % perform calculations for initial height and firing angle
     distance = sqrt(coords(1)^2 + coords(2)^2);     % calc distance
     angle = atan2(coords(2), coords(1)) * (180/pi);
-    d1hat = polyval(polymodel, distance);               % polyval
-    fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", d1hat);
+    h1hat = distance/p1;               % polyval
+    fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", h1hat);
     fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
     n = n + 1;
 end
@@ -112,6 +104,12 @@ end
 %% Round 4
 fprintf("\nRound 4: Hit Team Puck into EF Puck\n");
 
+p3 = 1.0925;
+p4 = 9.7869;
+polymodel2 = [p3, p4];
+h1hat = distance/p3;
+fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", h1hat);
+fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
 n = n + 1;
 
 %% Scoring points at the end
@@ -187,8 +185,8 @@ while true
     end
     distance = sqrt(coords(1)^2 + coords(2)^2);     % calc distance
     angle = atan2(coords(2), coords(1)) * (180/pi);
-    d1hat = polyval(polymodel, distance);               % polyval
-    fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", d1hat);
+    h1hat = distance/p1;               % polyval
+    fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", h1hat);
     fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
     n = n + 1;
 end
