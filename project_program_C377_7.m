@@ -111,7 +111,22 @@ fprintf("\nRound 4: Hit Team Puck into EF Puck\n");
 p3 = 1.0925;
 p4 = 9.7869;
 polymodel2 = [p3, p4];
-h1hat = distance/p3;
+isValidMass = false;
+while ~isValidMass
+    mass = input("\nEnter the mass of the EF Puck in grams (between 10 and 30 grams): ");
+    if mass >= 10 && mass <= 30
+        isValidMass = true;
+    else
+        warning("Invalid mass, please enter a value between 10 and 30 grams.");
+    end
+end
+team_puck_coords = [0, 0];
+ef_puck_coords = [0, 75];
+distance = sqrt((ef_puck_coords(1) - team_puck_coords(1))^2 + (ef_puck_coords(2) - team_puck_coords(2))^2);
+target_coords = [0, 112.5];
+target_distance = target_coords(2) - ef_puck_coords(2);
+h1hat = (distance * target_distance) / (p3 * mass);
+angle = atan2(target_coords(2), target_coords(1)) * (180/pi);
 fprintf("\nThe height at which you should raise the hammer is %.2f centimeters.\n", h1hat);
 fprintf("The angle at which you should aim the hammer is %.2f degrees.\n", angle);
 n = n + 1;
